@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Button, Group, Paper, Text, rem } from "@mantine/core";
-import { IconUpload, IconPhoto, IconX } from "@tabler/icons-react";
-import { Dropzone, DropzoneProps } from "@mantine/dropzone";
-import classes from "./Dropzone.module.css";
-import * as Papa from "papaparse";
-import { useState, useContext } from "react";
-import DataContext from "../../context/dataContext";
+import { Button, Group, Paper, Text, rem } from '@mantine/core';
+import { IconUpload, IconX } from '@tabler/icons-react';
+import { Dropzone, DropzoneProps } from '@mantine/dropzone';
+import classes from './Dropzone.module.css';
+import * as Papa from 'papaparse';
+import { useState, useContext } from 'react';
+import DataContext from '../../context/dataContext';
 
 const DropZone = (props: Partial<DropzoneProps>) => {
   const [data, setData] = useState<any>();
@@ -16,8 +16,8 @@ const DropZone = (props: Partial<DropzoneProps>) => {
       console.log(file);
       try {
         const reader = new FileReader();
-        reader.onload = (e: any) => {
-          if (file.type !== "text/csv") console.log("wrong file");
+        reader.onload = () => {
+          if (file.type !== 'text/csv') console.log('wrong file');
           else {
             Papa.parse(file, {
               dynamicTyping: true,
@@ -36,7 +36,7 @@ const DropZone = (props: Partial<DropzoneProps>) => {
       }
     });
   };
-  console.log("data=", data);
+  console.log('data=', data);
   return (
     <>
       <Paper className={classes.main}>
@@ -44,24 +44,24 @@ const DropZone = (props: Partial<DropzoneProps>) => {
           onDrop={(files) => {
             handleFile(files);
           }}
-          onReject={(files) => console.log("rejected files", files)}
-          maxSize={3 * 1024 ** 2}
-          accept={["text/csv"]}
+          onReject={(files) => console.log('rejected files', files)}
+          // maxSize={3 * 1024 ** 2}
+          accept={['text/csv']}
           {...props}
           className={classes.dropzone}
         >
           <Group
             justify="center"
             gap="xl"
-            mih={220}
-            style={{ pointerEvents: "none" }}
+            // mih={220}
+            style={{ pointerEvents: 'none' }}
           >
             <Dropzone.Accept>
               <IconUpload
                 style={{
                   width: rem(52),
                   height: rem(52),
-                  color: "var(--mantine-color-blue-6)",
+                  color: 'var(--mantine-color-blue-6)',
                 }}
                 stroke={1.5}
               />
@@ -71,7 +71,7 @@ const DropZone = (props: Partial<DropzoneProps>) => {
                 style={{
                   width: rem(52),
                   height: rem(52),
-                  color: "var(--mantine-color-red-6)",
+                  color: 'var(--mantine-color-red-6)',
                 }}
                 stroke={1.5}
               />
@@ -85,7 +85,7 @@ const DropZone = (props: Partial<DropzoneProps>) => {
               <Text size="xl" inline>
                 Drag or drop files here
               </Text>
-              <Text size="sm" c="dimmed" inline mt={7}>
+              <Text size="sm" inline className={classes.filetype}>
                 csv, excel . Max size 5MB
               </Text>
               {/* </div> */}
@@ -95,8 +95,8 @@ const DropZone = (props: Partial<DropzoneProps>) => {
         <Button className={classes.button}>Upload</Button>
       </Paper>
       <Text className={classes.info}>
-        *Make sure to upload an error free file with all fields defined so as to
-        avoid any possible errors while working with it.
+        *Make sure to upload an error free file with all fields defined so as to avoid any possible errors while working
+        with it.
       </Text>
     </>
   );
