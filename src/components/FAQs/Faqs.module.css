@@ -1,0 +1,32 @@
+.section {
+  width: 100vw;
+  --container-size: 100%;
+  background: radial-gradient(farthest-corner at 40px 40px, #f35 0%, #43e 100%);
+}
+.wrapper {
+  padding-top: calc(var(--mantine-spacing-xl) * 2);
+  padding-bottom: calc(var(--mantine-spacing-xl) * 2);
+  min-height: rem(650px);
+}
+
+.title {
+  margin-bottom: calc(var(--mantine-spacing-xl) * 1.5);
+  color: #000;
+  font-family: Inter;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 60% */
+  text-align: center;
+}
+
+.item {
+  border-radius: var(--mantine-radius-md);
+  margin-bottom: var(--mantine-spacing-lg);
+  border: rem(1px) solid #c3c2c2;
+  background-color: transparent;
+}
+
+.text {
+  color: #fff;
+}

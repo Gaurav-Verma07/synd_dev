@@ -7,6 +7,7 @@ import { useState } from 'react';
 import DataContext from './context/dataContext';
 import Tool from './pages/Tool/Tool';
 import Home from './pages/Home/Home';
+import './styles/global.css';
 
 export default function App() {
   const [allData, setAllData] = useState<string[][]>([['']]);
