@@ -3,7 +3,7 @@ import { useDisclosure } from '@mantine/hooks';
 import { IconChevronDown } from '@tabler/icons-react';
 import classes from './Header.module.css';
 import Logo from '../../../public/logo.png';
-import { useLocation, useNavigate, useRoutes } from 'react-router-dom';
+import { useLocation} from 'react-router-dom';
 
 const links = [
   { link: '/about', label: 'About' },
