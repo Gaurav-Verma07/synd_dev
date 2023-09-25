@@ -4,11 +4,11 @@ import { HeaderMenu } from '../../components/Header/Header';
 
 const Tool = () => {
   return (
-    <>
+    <div>
       <HeaderMenu />
       <DropZone />
       <DataPreview />
-    </>
+    </div>
   );
 };
 

@@ -2,7 +2,8 @@ import { Menu, Group, Center, Burger, Container, Image } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { IconChevronDown } from '@tabler/icons-react';
 import classes from './Header.module.css';
-import Logo from '../../../public/logo.png'
+import Logo from '../../../public/logo.png';
+import { useLocation, useNavigate, useRoutes } from 'react-router-dom';
 
 const links = [
   { link: '/about', label: 'About' },
@@ -31,24 +32,26 @@ const links = [
 
 export function HeaderMenu() {
   const [opened, { toggle }] = useDisclosure(false);
+  const location = useLocation();
+  console.log(location);
 
   const items = links.map((link) => {
-    const menuItems = link.links?.map((item) => (
-      <Menu.Item key={item.link}>{item.label}</Menu.Item>
-    ));
+    const menuItems = link.links?.map((item) => <Menu.Item key={item.link}>{item.label}</Menu.Item>);
 
     if (menuItems) {
       return (
         <Menu key={link.label} trigger="hover" transitionProps={{ exitDuration: 0 }} withinPortal>
           <Menu.Target>
-            <a
-              href={link.link}
-              className={classes.link}
-              onClick={(event) => event.preventDefault()}
-            >
+            <a href={link.link} className={classes.link} onClick={(event) => event.preventDefault()}>
               <Center>
-                <span className={classes.linkLabel}>{link.label}</span>
-                <IconChevronDown size="0.9rem" stroke={1.5} />
+                <span className={`${classes.linkLabel} ${location.pathname === '/tool' && classes.toolpage}`}>
+                  {link.label}
+                </span>
+                <IconChevronDown
+                  className={location.pathname === '/tool' ? classes.toolpage : ''}
+                  size="0.9rem"
+                  stroke={1.5}
+                />
               </Center>
             </a>
           </Menu.Target>
@@ -61,7 +64,7 @@ export function HeaderMenu() {
       <a
         key={link.label}
         href={link.link}
-        className={classes.link}
+        className={`${classes.link} ${location.pathname === '/tool' && classes.toolpage}`}
         onClick={(event) => event.preventDefault()}
       >
         {link.label}
@@ -74,7 +77,7 @@ export function HeaderMenu() {
       <Container size="md">
         <div className={classes.inner}>
           {/* <MantineLogo size={28} /> */}
-          <Image src={Logo}/>
+          <Image src={Logo} />
           <Group gap={5} visibleFrom="sm">
             {items}
           </Group>

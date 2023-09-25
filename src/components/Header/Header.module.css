@@ -1,39 +1,44 @@
 .header {
-    /* height: rem(56px); */
-    /* margin-bottom: rem(120px); */
-    background-color: var(--mantine-color-body);
-    border-bottom: rem(1px) solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
-    padding: 10px 0;
-    position: absolute;
-    width: 100%;
-    z-index: 10;
-    background-color: transparent;
-    backdrop-filter: blur(10px);
-    border:none
+  /* height: rem(56px); */
+  /* margin-bottom: rem(120px); */
+  background-color: var(--mantine-color-body);
+  border-bottom: rem(1px) solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+  padding: 10px 0;
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+  top: 0;
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+  border: none;
 }
-  
-  .inner {
-    height: rem(56px);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+.inner {
+  height: rem(56px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.link {
+  display: block;
+  line-height: 1;
+  padding: rem(8px) rem(12px);
+  border-radius: var(--mantine-radius-sm);
+  text-decoration: none;
+  /* color: light -dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0)); */
+  font-size: var(--mantine-font-size-sm);
+  font-weight: 500;
+  color: #fff;
+  @mixin hover {
+    /* background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6)); */
   }
-  
-  .link {
-    display: block;
-    line-height: 1;
-    padding: rem(8px) rem(12px);
-    border-radius: var(--mantine-radius-sm);
-    text-decoration: none;
-    /* color: light -dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0)); */
-    font-size: var(--mantine-font-size-sm);
-    font-weight: 500;
-  color:#fff;
-    @mixin hover {
-      /* background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6)); */
-    }
-  }
-  
-  .linkLabel {
-    margin-right: rem(5px);
-  }
+}
+
+.linkLabel {
+  margin-right: rem(5px);
+}
+
+.toolpage {
+  color: #000 !important;
+}
