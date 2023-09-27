@@ -1,11 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Button, Group, Paper, Text, rem } from '@mantine/core';
+import { Button, Group, Image, Paper, Text, rem } from '@mantine/core';
 import { IconUpload, IconX } from '@tabler/icons-react';
 import { Dropzone, DropzoneProps } from '@mantine/dropzone';
 import classes from './Dropzone.module.css';
 import * as Papa from 'papaparse';
 import { useState, useContext } from 'react';
 import DataContext from '../../context/dataContext';
+import Grad1 from '../../assets/grad1.svg';
+import Grad2 from '../../assets/grad2.svg';
+import Grad3 from '../../assets/grad3.svg';
 
 const DropZone = (props: Partial<DropzoneProps>) => {
   const [data, setData] = useState<any>();
@@ -38,7 +41,12 @@ const DropZone = (props: Partial<DropzoneProps>) => {
   };
   console.log('data=', data);
   return (
-    <>
+    <div className={classes.section}>
+      <div>
+        <Image className={`${classes.gradimg} ${classes.grad1}`} src={Grad1} />
+        <Image className={`${classes.gradimg} ${classes.grad2}`} src={Grad2} />
+        <Image className={`${classes.gradimg} ${classes.grad3}`} src={Grad3} />
+      </div>
       <Paper className={classes.main}>
         <Dropzone
           onDrop={(files) => {
@@ -98,7 +106,7 @@ const DropZone = (props: Partial<DropzoneProps>) => {
         *Make sure to upload an error free file with all fields defined so as to avoid any possible errors while working
         with it.
       </Text>
-    </>
+    </div>
   );
 };
 

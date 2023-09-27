@@ -23,7 +23,7 @@ const links = [
     link: '#2',
     label: 'Support',
     links: [
-      { link: '/faq', label: 'FAQ' },
+      { link: '#faq', label: 'FAQ' },
       { link: '/demo', label: 'Book a demo' },
       { link: '/forums', label: 'Forums' },
     ],

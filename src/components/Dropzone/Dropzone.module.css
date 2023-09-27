@@ -2,13 +2,21 @@
   max-width: 600px;
   margin: 0 auto;
   border-radius: 10px;
-  background: #f7f7fa;
+  background-color: #fff !important;
   box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
   padding:  50px;
   padding-bottom: 20px;
   margin-top: 40px;
-  position: relative;
   margin-top: 160px;
+  position: relative;
+
+}
+
+.section{
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 250px;
 }
 
 .dropzone{
@@ -22,7 +30,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: transparent !important;
+  background-color: #fff !important;
 }
 
 .button{
@@ -47,4 +55,37 @@
 
 .filetype{
   color: #777;
+}
+
+.gradimg {
+  max-width: 100%;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.grad1 {
+  z-index: 0;
+  position: absolute;
+  top: auto;
+  bottom: 0%;
+  left: 0%;
+  right: auto;
+}
+
+.grad2 {
+  z-index: 0;
+  position: absolute;
+  top: 0%;
+  bottom: auto;
+  left: auto;
+  right: 0%;
+}
+
+.grad3 {
+  z-index: 0;
+  position: absolute;
+  top: auto;
+  bottom: -40%;
+  left: auto;
+  right: 0%;
 }

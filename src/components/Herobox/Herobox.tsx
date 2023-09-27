@@ -1,11 +1,20 @@
-import { Button, Container, Text, Title } from '@mantine/core';
+import { Button, Container, Image, Text, Title } from '@mantine/core';
 import classes from './Herobox.module.css';
 import { IconArrowNarrowRight } from '@tabler/icons-react';
 import { useNavigate } from 'react-router-dom';
+import Grad1 from '../../assets/grad1.svg';
+import Grad2 from '../../assets/grad2.svg';
+import Grad3 from '../../assets/grad3.svg';
+
 const Herobox = () => {
   const navigate = useNavigate();
   return (
     <Container className={classes.section}>
+      <div>
+        <Image className={`${classes.gradimg} ${classes.grad1}`} src={Grad1} />
+        <Image className={`${classes.gradimg} ${classes.grad2}`} src={Grad2} />
+        <Image className={`${classes.gradimg} ${classes.grad3}`} src={Grad3} />
+      </div>
       <div className={classes.left}>
         <Title className={classes.heading}>
           Empowering <span className="gradient">Insights </span>

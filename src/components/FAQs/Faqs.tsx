@@ -14,7 +14,7 @@ const data = [
 
 export function FaqSimple() {
   return (
-    <div className={classes.section}>
+    <div className={classes.section} id="faq" >
       <Container size="sm" className={classes.wrapper}>
         <Title className={classes.title}>Frequently Asked Questions</Title>
 

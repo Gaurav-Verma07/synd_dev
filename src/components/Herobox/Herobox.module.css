@@ -1,5 +1,5 @@
 .section {
-  background-image: url('../../assets/feature.svg');
+  /* background-image: url('../../assets/feature.svg'); */
   /* background: radial-gradient(#e66465, #9198e5); */
   /* background: radial-gradient(farthest-corner at 40px 40px, #f35 0%, #43e 100%); */
   height: 100vh;
@@ -12,13 +12,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .left {
   text-align: center;
 }
 .heading {
-  color: #fff;
+  color: #020202;
   font-size: 50px;
   font-style: normal;
   font-weight: 700;
@@ -26,7 +28,7 @@
 }
 
 .info {
-  color: #e4e3e3;
+  /* color: #e4e3e3; */
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -38,6 +40,10 @@
   /* border: .5px dotted #fff ; */
   padding: 10px;
   border-radius: 20px;
+  color: #494444;
+
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .btn {
@@ -68,4 +74,37 @@
   100% {
     background-position: 0% 50%;
   }
+}
+
+.gradimg {
+  max-width: 100%;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.grad1 {
+  z-index: 0;
+  position: absolute;
+  top: auto;
+  bottom: 0%;
+  left: 0%;
+  right: auto;
+}
+
+.grad2 {
+  z-index: 0;
+  position: absolute;
+  top: 0%;
+  bottom: auto;
+  left: auto;
+  right: 0%;
+}
+
+.grad3 {
+  z-index: 0;
+  position: absolute;
+  top: auto;
+  bottom: -40%;
+  left: auto;
+  right: 0%;
 }
