@@ -21,7 +21,7 @@ const Herobox = () => {
           through Synthetic data
         </Title>
         <Text className={classes.info}>
-          Unlock the power of data without compromising privacy or quality. SynD Pro is your all-in-one synthetic data
+          Unlock the power of data without compromising privacy or quality. SynD is our all-in-one synthetic data
           generation tool, designed to empower businesses and researchers with realistic, privacy-conscious data for a
           wide range of applications.
         </Text>
