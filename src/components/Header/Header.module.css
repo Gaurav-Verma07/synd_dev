@@ -29,8 +29,8 @@
   /* color: light -dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0)); */
   font-size: var(--mantine-font-size-sm);
   font-weight: 700;
-  color: #777;
-  font-size: 18px;
+  color: grey;
+  font-size: 16px;
 }
 
 .linkLabel {
@@ -38,5 +38,4 @@
 }
 
 .toolpage {
-  color: #000 !important;
 }
