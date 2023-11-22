@@ -28,8 +28,9 @@
   text-decoration: none;
   /* color: light -dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0)); */
   font-size: var(--mantine-font-size-sm);
-  font-weight: 500;
-  color: #fff;
+  font-weight: 700;
+  color: #777;
+  font-size: 18px;
 }
 
 .linkLabel {

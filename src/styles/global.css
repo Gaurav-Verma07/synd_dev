@@ -9,6 +9,9 @@
   position: relative;
 } */
 
+body{
+  height: auto;
+}
 .tool{
   position: relative;
 }

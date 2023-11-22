@@ -1,6 +1,7 @@
-import DataPreview from '../../components/DataPreview/DataPreview';
-import DropZone from '../../components/Dropzone/Dropzone';
-import { HeaderMenu } from '../../components/Header/Header';
+import DataPreview from "../../components/DataPreview/DataPreview";
+import DropZone from "../../components/Dropzone/Dropzone";
+import GeneratedData from "../../components/GeneratedData/GeneratedData";
+import { HeaderMenu } from "../../components/Header/Header";
 
 const Tool = () => {
   return (
@@ -8,6 +9,7 @@ const Tool = () => {
       <HeaderMenu />
       <DropZone />
       <DataPreview />
+      <GeneratedData />
     </div>
   );
 };
