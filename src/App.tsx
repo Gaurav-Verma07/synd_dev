@@ -38,3 +38,6 @@ export default function App() {
     </DataContext.Provider>
   );
 }
+
+// Regarding plots, visit: 
+// https://colab.research.google.com/drive/1K2nkLISxEf7US0Xfzvzwt4d2AjCnl2Et#scrollTo=BUp2U7tcD2wm
