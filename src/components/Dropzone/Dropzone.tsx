@@ -44,7 +44,7 @@ const DropZone = (props: Partial<DropzoneProps>) => {
 
   return (
       <div className={classes.section}>
-        <div>
+        {/* <div>
           <Image
             className={`${classes.gradimg} ${classes.grad1}`}
             src={Grad1}
@@ -57,7 +57,7 @@ const DropZone = (props: Partial<DropzoneProps>) => {
             className={`${classes.gradimg} ${classes.grad3}`}
             src={Grad3}
           />
-        </div>
+        </div> */}
         <Paper className={classes.main}>
           <Dropzone
             onDrop={(files) => {

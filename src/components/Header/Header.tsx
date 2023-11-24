@@ -1,31 +1,39 @@
-import { Menu, Group, Center, Burger, Container, Image } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
-import { IconChevronDown } from '@tabler/icons-react';
-import classes from './Header.module.css';
-import Logo from '../../../public/logo.png';
-import { useLocation} from 'react-router-dom';
+import {
+  Menu,
+  Group,
+  Center,
+  Burger,
+  Container,
+  Image,
+  Title,
+} from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
+import { IconChevronDown } from "@tabler/icons-react";
+import classes from "./Header.module.css";
+import Logo from "../../../public/logo.png";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const links = [
-  { link: '/about', label: 'About' },
+  { link: "/about", label: "About" },
   {
-    link: '#1',
-    label: 'Learn',
+    link: "#1",
+    label: "Learn",
     links: [
-      { link: '/docs', label: 'Documentation' },
-      { link: '/resources', label: 'Resources' },
-      { link: '/community', label: 'Community' },
-      { link: '/blog', label: 'Blog' },
+      { link: "/docs", label: "Documentation" },
+      { link: "/resources", label: "Resources" },
+      { link: "/community", label: "Community" },
+      { link: "/blog", label: "Blog" },
     ],
   },
-  { link: '/about', label: 'How it works?' },
-  { link: '/pricing', label: 'Docs' },
+  { link: "/pretrained-model", label: "Pretrained models" },
+  { link: "/pricing", label: "Docs" },
   {
-    link: '#2',
-    label: 'Support',
+    link: "#2",
+    label: "Support",
     links: [
-      { link: '#faq', label: 'FAQ' },
-      { link: '/demo', label: 'Book a demo' },
-      { link: '/forums', label: 'Forums' },
+      { link: "#faq", label: "FAQ" },
+      { link: "/demo", label: "Book a demo" },
+      { link: "/forums", label: "Forums" },
     ],
   },
 ];
@@ -33,22 +41,43 @@ const links = [
 export function HeaderMenu() {
   const [opened, { toggle }] = useDisclosure(false);
   const location = useLocation();
-  console.log(location);
+  const navigate = useNavigate();
 
   const items = links.map((link) => {
-    const menuItems = link.links?.map((item) => <Menu.Item key={item.link}>{item.label}</Menu.Item>);
+    const menuItems = link.links?.map((item) => (
+      <Menu.Item key={item.link}>{item.label}</Menu.Item>
+    ));
 
     if (menuItems) {
       return (
-        <Menu key={link.label} trigger="hover" transitionProps={{ exitDuration: 0 }} withinPortal>
+        <Menu
+          key={link.label}
+          trigger="hover"
+          transitionProps={{ exitDuration: 0 }}
+          withinPortal
+        >
           <Menu.Target>
-            <a href={link.link} className={classes.link} onClick={(event) => event.preventDefault()}>
+            <a
+              href={link.link}
+              className={classes.link}
+              onClick={(event) => {
+                event.preventDefault();
+                console.log("navigate");
+                navigate(link.link);
+              }}
+            >
               <Center>
-                <span className={`${classes.linkLabel} ${location.pathname === '/tool' && classes.toolpage}`}>
+                <span
+                  className={`${classes.linkLabel} ${
+                    location.pathname === "/tool" && classes.toolpage
+                  }`}
+                >
                   {link.label}
                 </span>
                 <IconChevronDown
-                  className={location.pathname === '/tool' ? classes.toolpage : ''}
+                  className={
+                    location.pathname === "/tool" ? classes.toolpage : ""
+                  }
                   size="0.9rem"
                   stroke={1.5}
                 />
@@ -64,8 +93,13 @@ export function HeaderMenu() {
       <a
         key={link.label}
         href={link.link}
-        className={`${classes.link} ${location.pathname === '/tool' && classes.toolpage}`}
-        onClick={(event) => event.preventDefault()}
+        className={`${classes.link} ${
+          location.pathname === "/tool" && classes.toolpage
+        }`}
+        onClick={(event) => {
+          event.preventDefault();
+          navigate(link.link);
+        }}
       >
         {link.label}
       </a>
@@ -77,7 +111,10 @@ export function HeaderMenu() {
       <Container size="md">
         <div className={classes.inner}>
           {/* <MantineLogo size={28} /> */}
-          <Image src={Logo} />
+          {/* <Image src={Logo} /> */}
+          <Title className={`gradient  ${classes.logo} `} onClick={()=>{
+            navigate('/')
+          }} >SynD</Title>
           <Group gap={5} visibleFrom="sm">
             {items}
           </Group>

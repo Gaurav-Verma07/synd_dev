@@ -13,9 +13,11 @@ export interface DataProps {
   setUserFile: Dispatch<SetStateAction<DataProps["userFile"]>>;
   isGenerate: boolean;
   setIsGenerate: Dispatch<SetStateAction<DataProps["isGenerate"]>>;
+  pretrainType: string;
+  setPretrinType: Dispatch<SetStateAction<DataProps["pretrainType"]>>;
 }
 
-const emptyFile: File = new File([], '');
+const emptyFile: File = new File([], "");
 
 const DataContext = React.createContext<DataProps>({
   //   isLoading: true,
@@ -27,7 +29,9 @@ const DataContext = React.createContext<DataProps>({
   userFile: emptyFile,
   setUserFile: () => {},
   isGenerate: false,
-  setIsGenerate: ()=>{},
+  setIsGenerate: () => {},
+  pretrainType: "",
+  setPretrinType: () => {},
 });
 
 export default DataContext;

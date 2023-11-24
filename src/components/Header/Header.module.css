@@ -4,13 +4,13 @@
   background-color: var(--mantine-color-body);
   border-bottom: rem(1px) solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
   padding: 10px 0;
-  position: absolute;
+  /* position: absolute; */
   width: 100%;
   z-index: 10;
   top: 0;
   background-color: transparent;
   backdrop-filter: blur(10px);
-  border: none;
+  /* box-shadow: 0px 1px 81px #3014b8; */
 }
 
 .inner {
@@ -28,8 +28,8 @@
   text-decoration: none;
   /* color: light -dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0)); */
   font-size: var(--mantine-font-size-sm);
-  font-weight: 700;
-  color: grey;
+  font-weight: 600;
+  color: rgba(0,0,0,.7);
   font-size: 16px;
 }
 
@@ -38,4 +38,8 @@
 }
 
 .toolpage {
+}
+
+.logo{
+  cursor: pointer;
 }

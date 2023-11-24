@@ -5,13 +5,27 @@
   -webkit-text-fill-color: transparent;
 }
 
+.gradient2 {
+  background: linear-gradient(
+    90deg,
+    #5340e6,
+    #a927c8 25%,
+    #d314a7 50%,
+    #ea2889 75%,
+    #f34970
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 /* body{
   position: relative;
 } */
 
-body{
+body {
   height: auto;
 }
-.tool{
+.tool {
   position: relative;
 }

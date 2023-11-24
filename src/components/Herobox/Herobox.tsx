@@ -10,15 +10,10 @@ const Herobox = () => {
   const navigate = useNavigate();
   return (
     <Container className={classes.section}>
-      <div>
-        <Image className={`${classes.gradimg} ${classes.grad1}`} src={Grad1} />
-        <Image className={`${classes.gradimg} ${classes.grad2}`} src={Grad2} />
-        <Image className={`${classes.gradimg} ${classes.grad3}`} src={Grad3} />
-      </div>
       <div className={classes.left}>
         <Title className={classes.heading}>
           Empowering <span className="gradient">Insights </span>
-          through Synthetic data
+          through <span className='gradient2' > Synthetic data</span>
         </Title>
         <Text className={classes.info}>
           Unlock the power of data without compromising privacy or quality. SynD is our all-in-one synthetic data

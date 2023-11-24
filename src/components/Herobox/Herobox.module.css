@@ -1,14 +1,14 @@
 .section {
-  /* background-image: url('../../assets/feature.svg'); */
+  background-image: url('../../assets/bg_home.webp');
   /* background: radial-gradient(#e66465, #9198e5); */
   /* background: radial-gradient(farthest-corner at 40px 40px, #f35 0%, #43e 100%); */
   height: 100vh;
   width: 100vw !important;
   margin: 0;
   --container-size: 100%;
-  background-position: top;
+  /* background-position: center;
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size:cover; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,7 +20,7 @@
   text-align: center;
 }
 .heading {
-  color: #020202;
+  color: rgba(0, 0, 0, .8);
   font-size: 50px;
   font-style: normal;
   font-weight: 700;
@@ -44,6 +44,7 @@
 
   text-align: justify;
   text-justify: inter-word;
+  border: 1px solid rgba(0,0,0, .2)
 }
 
 .btn {

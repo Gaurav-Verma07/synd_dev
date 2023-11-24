@@ -9,14 +9,18 @@
   margin-top: 40px;
   margin-top: 160px;
   position: relative;
-
+  
 }
 
 .section{
   width: 100vw;
   position: relative;
   overflow: hidden;
-  padding-bottom: 260px;
+  padding-bottom: 290px;
+  background-image: url("../../assets/background.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .dropzone{
