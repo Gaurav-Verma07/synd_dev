@@ -1,10 +1,10 @@
 import { Group, Image, Radio, RadioGroup, Text, Title } from "@mantine/core";
-import classes from "./Pretrained.module.css";
+import classes from "./PretrainedLanding.module.css";
 import PretrainVideo from "../../assets/pretrained2.mp4";
 import Pretrainbg from "../../assets/pretrainbg.svg";
 import { useContext, useEffect, useState } from "react";
 import DataContext from "../../context/dataContext";
-const Pretrained = () => {
+const PretrainedLanding = () => {
   const [value, setValue] = useState("");
   const { setPretrinType } = useContext(DataContext);
   useEffect(() => {
@@ -62,4 +62,4 @@ const Pretrained = () => {
   );
 };
 
-export default Pretrained;
+export default PretrainedLanding;

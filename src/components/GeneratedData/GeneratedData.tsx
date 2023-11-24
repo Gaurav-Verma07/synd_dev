@@ -3,6 +3,7 @@ import DataContext from "../../context/dataContext";
 import { toast } from "react-toastify";
 import classes from "./GeneratedData.module.css";
 import { Button, Divider, Input, Table, TextInput } from "@mantine/core";
+import DataTable from "../DataTable/DataTable";
 
 const GeneratedData = () => {
   const { userFile, isGenerate, setIsGenerate } = useContext(DataContext);
@@ -60,15 +61,6 @@ const GeneratedData = () => {
       });
   };
 
-  const rows = generatedData
-    ?.slice(1, 11)
-    .map((row: string[], index: number) => (
-      <Table.Tr key={index}>
-        {row.map((element: string, index: number) => (
-          <Table.Td key={index}>{element}</Table.Td>
-        ))}
-      </Table.Tr>
-    ));
 
     const downloadHandler= ()=>{
         let csvContent = "data:text/csv;charset=utf-8," 
@@ -100,22 +92,7 @@ const GeneratedData = () => {
         <Button className={classes.downloadbutton} onClick={downloadHandler} disabled={generatedData[0].length===0} >Download data</Button>
 
       </form>
-      <Table
-        striped
-        highlightOnHover
-        withTableBorder
-        withRowBorders={true}
-        className={classes.table}
-      >
-        <Table.Thead>
-          <Table.Tr>
-            {generatedData[0]?.map((element: string, index: number) => (
-              <Table.Th key={index}>{element}</Table.Th>
-            ))}
-          </Table.Tr>
-        </Table.Thead>
-        <Table.Tbody>{rows}</Table.Tbody>
-      </Table>
+    <DataTable generatedData={generatedData}/>
     </section>
   );
 };

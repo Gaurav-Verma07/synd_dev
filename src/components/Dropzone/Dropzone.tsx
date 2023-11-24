@@ -9,6 +9,7 @@ import DataContext from "../../context/dataContext";
 import Grad1 from "../../assets/grad1.svg";
 import Grad2 from "../../assets/grad2.svg";
 import Grad3 from "../../assets/grad3.svg";
+import LandingVideo from '../../assets/pretrained1.mp4'
 
 const DropZone = (props: Partial<DropzoneProps>) => {
   const [data, setData] = useState<any>();
@@ -58,6 +59,11 @@ const DropZone = (props: Partial<DropzoneProps>) => {
             src={Grad3}
           />
         </div> */}
+         <div className={classes.videoblock}>
+          <video className={classes.video} autoPlay muted loop>
+            <source src={LandingVideo} type="video/mp4" />
+          </video>
+        </div>
         <Paper className={classes.main}>
           <Dropzone
             onDrop={(files) => {
