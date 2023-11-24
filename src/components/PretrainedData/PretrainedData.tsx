@@ -13,7 +13,48 @@ import {
 } from "@mantine/core";
 import { toast } from "react-toastify";
 import DataTable from "../DataTable/DataTable";
-import { adultData, irisData } from "./dataPreview";
+import { adultData, energyData, irisData, stockData } from "./dataPreview";
+
+const tabularDataset = [
+  {
+    value: "adult",
+    label: "Adult",
+  },
+  {
+    value: "iris",
+    label: "Iris",
+  },
+  {
+    value: "company",
+    label: "Company",
+  },
+  {
+    value: "breast_cancer",
+    label: "Breast Cancer",
+  },
+  {
+    value: "credit_card",
+    label: "Credit card",
+  },
+];
+const timeseriesDataset = [
+  {
+    value: "stock_data",
+    label: "Stock Data",
+  },
+  {
+    value: "energy_data",
+    label: "Energy Data",
+  },
+  {
+    value: "mutual_funds",
+    label: "Mutual Funds",
+  },
+  {
+    value: "weather",
+    label: "Weather",
+  },
+];
 
 const PretrainedData = () => {
   const { pretrainType } = useContext(DataContext);
@@ -67,9 +108,11 @@ const PretrainedData = () => {
   };
 
   useEffect(() => {
-    if (dataset == "adult") setPreview(adultData);
-    else if (dataset === "") setPreview([[]]);
-    else setPreview(irisData);
+    if (dataset === "adult") setPreview(adultData);
+    else if (dataset === "iris") setPreview(irisData);
+    else if (dataset === "stock_data") setPreview(stockData);
+    else if (dataset === "energy_data") setPreview(energyData);
+    else setPreview([[]]);
   }, [dataset]);
 
   if (pretrainType === "") {
@@ -90,26 +133,25 @@ const PretrainedData = () => {
           >
             <Text c="grey">Select dataset model to be generated</Text>
             <Group mt={10}>
-              <Radio value="adult" color="grape" size="md" label="Adult" />
-              <Radio value="company" color="grape" size="md" label="Company" />
-              <Radio value="iris" color="grape" size="md" label="iris" />
-              <Radio
-                value="breast_cancer"
-                color="grape"
-                size="md"
-                label="Breast cancer"
-              />
-              <Radio
-                value="credit_card"
-                color="grape"
-                size="md"
-                label="Credit card"
-              />
+              {(pretrainType === "tabular"
+                ? tabularDataset
+                : timeseriesDataset
+              ).map((set: { value: string; label: string }, index: number) => (
+                <Radio
+                  key={index}
+                  value={set.value}
+                  color="grape"
+                  size="md"
+                  label={set.label}
+                />
+              ))}
             </Group>
           </Radio.Group>
         </div>
         <div className={classes.preview}>
-          <Text c="grey" size="sm" mb={5} >{dataset} dataset preview:</Text>
+          <Text c="grey" size="sm" mb={5}>
+            {dataset} dataset preview:
+          </Text>
           <DataTable generatedData={preview} />
         </div>
         <div className={classes.rows}>
