@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { Dispatch, SetStateAction } from "react";
 
 export interface DataProps {

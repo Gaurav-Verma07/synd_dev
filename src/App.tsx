@@ -8,7 +8,7 @@ import DataContext from "./context/dataContext";
 import Tool from "./pages/Tool/Tool";
 import Home from "./pages/Home/Home";
 import "./styles/global.css";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PretrainedModel from "./pages/PretrainedModel/PretrainedModel";
 

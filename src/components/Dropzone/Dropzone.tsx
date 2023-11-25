@@ -1,19 +1,15 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { Button, Group, Image, Paper, Table, Text, rem } from "@mantine/core";
+import {  Group,  Paper, Text, rem } from "@mantine/core";
 import { IconUpload, IconX } from "@tabler/icons-react";
 import { Dropzone, DropzoneProps } from "@mantine/dropzone";
 import classes from "./Dropzone.module.css";
 import * as Papa from "papaparse";
 import { useState, useContext } from "react";
 import DataContext from "../../context/dataContext";
-import Grad1 from "../../assets/grad1.svg";
-import Grad2 from "../../assets/grad2.svg";
-import Grad3 from "../../assets/grad3.svg";
 import LandingVideo from '../../assets/pretrained1.mp4'
 
 const DropZone = (props: Partial<DropzoneProps>) => {
   const [data, setData] = useState<any>();
-  const { setAllData, allData , setUserFile, userFile} = useContext(DataContext);
+  const { setAllData, setUserFile} = useContext(DataContext);
 
   const handleFile = (files: any) => {
     files.forEach((file: any) => {

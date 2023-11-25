@@ -1,4 +1,4 @@
-import { Button, Loader, Table, Text, Title } from "@mantine/core";
+import { Button, Loader, Text, Title } from "@mantine/core";
 import DataContext from "../../context/dataContext";
 import { useContext } from "react";
 import classes from "./DataPreview.module.css";
@@ -10,14 +10,6 @@ const DataPreview = () => {
 
   console.log(allData);
   if (allData[0][0] === "") return <></>;
-
-  const rows = allData?.slice(0, 5).map((row: string[], index: number) => (
-    <Table.Tr key={index}>
-      {row.map((element: string, index: number) => (
-        <Table.Td key={index}>{element}</Table.Td>
-      ))}
-    </Table.Tr>
-  ));
 
   return (
     <div className={classes.base}>

@@ -1,24 +1,24 @@
-import { SyntheticEvent, useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import DataContext from "../../context/dataContext";
 import { toast } from "react-toastify";
 import classes from "./GeneratedData.module.css";
-import { Button, Divider, Input, Table, TextInput } from "@mantine/core";
+import { Button, Divider, TextInput } from "@mantine/core";
 import DataTable from "../DataTable/DataTable";
 
 const GeneratedData = () => {
   const { userFile, isGenerate, setIsGenerate } = useContext(DataContext);
   const [isTrained, setIsTrained] = useState<boolean>(false);
   const [generatedData, setGeneratedData] = useState<any[][]>([[]]);
-  const fileName= userFile.name.replace(/\.[^/.]+$/, "").toLowerCase();
-  const [uuid, setUUID]= useState<number>();
+  const fileName = userFile.name.replace(/\.[^/.]+$/, "").toLowerCase();
+  const [uuid, setUUID] = useState<number>();
   useEffect(() => {
     if (isGenerate) {
       console.log("generating");
       const data = new FormData();
       data.append("file", userFile);
-      const utime= new Date().valueOf();
-      setUUID(utime)
-      data.append("name", `${fileName}_${utime}`)
+      const utime = new Date().valueOf();
+      setUUID(utime);
+      data.append("name", `${fileName}_${utime}`);
       fetch("http://127.0.0.1:8000/file/", {
         method: "POST",
         body: data,
@@ -28,8 +28,7 @@ const GeneratedData = () => {
           // console.log("model trained");
           return data.json();
         })
-        .then((res) => {
-          console.log(res);
+        .then(() => {
           setIsGenerate(false);
           setIsTrained(true);
           toast.success("Model trained successfully");
@@ -65,18 +64,18 @@ const GeneratedData = () => {
       });
   };
 
-
-    const downloadHandler= ()=>{
-        let csvContent = "data:text/csv;charset=utf-8," 
-    + generatedData.map(e => e.join(",")).join("\n");
-    var encodedUri = encodeURI(csvContent);
-    var link = document.createElement("a");
+  const downloadHandler = () => {
+    const csvContent =
+      "data:text/csv;charset=utf-8," +
+      generatedData.map((e) => e.join(",")).join("\n");
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
     link.setAttribute("href", encodedUri);
     link.setAttribute("download", `${fileName}_synd.csv`);
     document.body.appendChild(link); // Required for FF
-    
+
     link.click(); // This will download the data file named "my_data.csv".
-    }
+  };
 
   if (isGenerate || !isTrained) return <></>;
 
@@ -93,10 +92,15 @@ const GeneratedData = () => {
         <Button type="submit" ml={20}>
           Generate
         </Button>
-        <Button className={classes.downloadbutton} onClick={downloadHandler} disabled={generatedData[0].length===0} >Download data</Button>
-
+        <Button
+          className={classes.downloadbutton}
+          onClick={downloadHandler}
+          disabled={generatedData[0].length === 0}
+        >
+          Download data
+        </Button>
       </form>
-    <DataTable generatedData={generatedData}/>
+      <DataTable generatedData={generatedData} />
     </section>
   );
 };

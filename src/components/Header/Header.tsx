@@ -4,13 +4,11 @@ import {
   Center,
   Burger,
   Container,
-  Image,
   Title,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconChevronDown } from "@tabler/icons-react";
 import classes from "./Header.module.css";
-import Logo from "../../../public/logo.png";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const links = [

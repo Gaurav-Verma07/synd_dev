@@ -1,10 +1,7 @@
-import { Button, Container, Image, Text, Title } from '@mantine/core';
+import { Button, Container, Text, Title } from '@mantine/core';
 import classes from './Herobox.module.css';
 import { IconArrowNarrowRight } from '@tabler/icons-react';
 import { useNavigate } from 'react-router-dom';
-import Grad1 from '../../assets/grad1.svg';
-import Grad2 from '../../assets/grad2.svg';
-import Grad3 from '../../assets/grad3.svg';
 
 const Herobox = () => {
   const navigate = useNavigate();
