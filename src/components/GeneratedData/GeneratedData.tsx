@@ -19,7 +19,7 @@ const GeneratedData = () => {
       const utime = new Date().valueOf();
       setUUID(utime);
       data.append("name", `${fileName}_${utime}`);
-      fetch("http://127.0.0.1:8000/file/", {
+      fetch("http://127.0.0.1:8000/data_generation/file/", {
         method: "POST",
         body: data,
       })
@@ -43,7 +43,7 @@ const GeneratedData = () => {
   const generateHandler = (e: any) => {
     e.preventDefault();
     const n_rows = e.target[0].value;
-    fetch("http://127.0.0.1:8000/generate/", {
+    fetch("http://127.0.0.1:8000/data_generation/generate/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

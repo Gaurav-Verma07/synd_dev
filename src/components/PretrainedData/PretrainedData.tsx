@@ -65,7 +65,7 @@ const PretrainedData = () => {
     console.log(dataset)
     const n_rows = e.target[0].value;
     try {
-      fetch(`http://127.0.0.1:8000/sample/?model=${dataset}`, {
+      fetch(`http://127.0.0.1:8000/data_generation/sample/?model=${dataset}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
