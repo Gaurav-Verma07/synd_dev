@@ -64,6 +64,7 @@ const PretrainedData = () => {
 
   const generateHandler = (e: any) => {
     e.preventDefault();
+    console.log(dataset)
     const n_rows = e.target[0].value;
     try {
       fetch(`http://127.0.0.1:8000/sample/?model=${dataset}`, {
@@ -93,7 +94,6 @@ const PretrainedData = () => {
       console.log(e);
     }
   };
-
   const downloadHandler = () => {
     let csvContent =
       "data:text/csv;charset=utf-8," +

@@ -9,12 +9,16 @@ const GeneratedData = () => {
   const { userFile, isGenerate, setIsGenerate } = useContext(DataContext);
   const [isTrained, setIsTrained] = useState<boolean>(false);
   const [generatedData, setGeneratedData] = useState<any[][]>([[]]);
-  const fileName= userFile.name.replace(/\.[^/.]+$/, "")
+  const fileName= userFile.name.replace(/\.[^/.]+$/, "").toLowerCase();
+  const [uuid, setUUID]= useState<number>();
   useEffect(() => {
     if (isGenerate) {
       console.log("generating");
       const data = new FormData();
       data.append("file", userFile);
+      const utime= new Date().valueOf();
+      setUUID(utime)
+      data.append("name", `${fileName}_${utime}`)
       fetch("http://127.0.0.1:8000/file/", {
         method: "POST",
         body: data,
@@ -47,7 +51,7 @@ const GeneratedData = () => {
       },
       body: JSON.stringify({
         n_rows: n_rows,
-        model_name: fileName,
+        model_name: `${fileName}_${uuid}`,
       }),
     })
       .then((res) => res.json())

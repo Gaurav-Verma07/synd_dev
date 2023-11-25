@@ -1,5 +1,5 @@
 .section {
-  width: 100vw;
+  /* width: 100vw; */
   --container-size: 100%;
   background: radial-gradient(farthest-corner at 40px 40px, rgba(255, 55, 85, 0.1) 0%, rgba(68, 58, 258, 0.1) 100%);
 }

@@ -45,20 +45,6 @@ const DropZone = (props: Partial<DropzoneProps>) => {
 
   return (
       <div className={classes.section}>
-        {/* <div>
-          <Image
-            className={`${classes.gradimg} ${classes.grad1}`}
-            src={Grad1}
-          />
-          <Image
-            className={`${classes.gradimg} ${classes.grad2}`}
-            src={Grad2}
-          />
-          <Image
-            className={`${classes.gradimg} ${classes.grad3}`}
-            src={Grad3}
-          />
-        </div> */}
          <div className={classes.videoblock}>
           <video className={classes.video} autoPlay muted loop>
             <source src={LandingVideo} type="video/mp4" />

@@ -107,7 +107,8 @@ export function HeaderMenu() {
   });
 
   return (
-    <header className={classes.header}>
+    <div className={classes.section} >
+    <header className={`${classes.header} ${location.pathname!=="/" && classes.backheader }`}  >
       <Container size="md">
         <div className={classes.inner}>
           {/* <MantineLogo size={28} /> */}
@@ -122,5 +123,6 @@ export function HeaderMenu() {
         </div>
       </Container>
     </header>
+    </div>
   );
 }
