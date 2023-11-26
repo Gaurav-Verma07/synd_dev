@@ -15,11 +15,11 @@
   overflow: hidden;
   padding-top: 50px;
   padding-bottom: 130px;
-  background-image: url("../../assets/background.png");
+  background-image: url("../../assets/dropzonebg.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-color: #000 !important;
+  background-color: #fafafa !important;
 }
 
 .dropzone {
@@ -91,12 +91,12 @@
   right: 0%;
 }
 
-.videoblock {
-  width: 300px;
-  margin: 0 auto;
-  /* height: 400px; */
-}
-.video{
-  width: 300px;
-  height: 300px;
+.video {
+  display: flex;
+  margin: 100px auto 10px auto;
+  width: 200px;
+  height: 200px;
+  border: 1px dotted rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
 }
