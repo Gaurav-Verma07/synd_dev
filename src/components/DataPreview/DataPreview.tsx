@@ -8,7 +8,6 @@ const DataPreview = () => {
   const { allData, setIsGenerate, isGenerate, userFile } =
     useContext(DataContext);
 
-  console.log(allData);
   if (allData[0][0] === "") return <></>;
 
   return (

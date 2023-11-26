@@ -60,7 +60,6 @@ export function HeaderMenu() {
               className={classes.link}
               onClick={(event) => {
                 event.preventDefault();
-                console.log("navigate");
                 navigate(link.link);
               }}
             >

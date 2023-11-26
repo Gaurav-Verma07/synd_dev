@@ -14,7 +14,6 @@ const GeneratedData = () => {
   const [uuid, setUUID] = useState<number>();
   useEffect(() => {
     if (isGenerate) {
-      console.log("generating");
       const data = new FormData();
       data.append("file", userFile);
       const utime = new Date().valueOf();
@@ -25,8 +24,6 @@ const GeneratedData = () => {
         body: data,
       })
         .then((data) => {
-          // console.log(data.json());
-          // console.log("model trained");
           return data.json();
         })
         .then(() => {
@@ -35,7 +32,7 @@ const GeneratedData = () => {
           toast.success("Model trained successfully");
         })
         .catch((error) => {
-          console.log(error);
+          toast.error(error)
           setIsGenerate(false);
         });
     }
@@ -56,7 +53,6 @@ const GeneratedData = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         setGeneratedData(result?.res);
         toast.success("Data generated successfully");
       })

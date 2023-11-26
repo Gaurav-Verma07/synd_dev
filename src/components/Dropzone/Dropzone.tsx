@@ -3,18 +3,17 @@ import { IconUpload, IconX } from "@tabler/icons-react";
 import { Dropzone, DropzoneProps } from "@mantine/dropzone";
 import classes from "./Dropzone.module.css";
 import * as Papa from "papaparse";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import DataContext from "../../context/dataContext";
 import LandingVideo from '../../assets/pretrained1.mp4'
+import { toast } from "react-toastify";
 
 const DropZone = (props: Partial<DropzoneProps>) => {
-  const [data, setData] = useState<any>();
   const { setAllData, setUserFile} = useContext(DataContext);
 
   const handleFile = (files: any) => {
     files.forEach((file: any) => {
       setUserFile(file);
-      console.log(file);
       try {
         const reader = new FileReader();
         reader.onload = () => {
@@ -24,17 +23,14 @@ const DropZone = (props: Partial<DropzoneProps>) => {
               dynamicTyping: true,
               skipEmptyLines: true,
               complete: (result: any) => {
-                setData(result.data);
                 setAllData(result?.data);
-                console.log(data);
               },
             });
           }
         };
         reader.readAsArrayBuffer(file);
-      } catch (err) {
-        console.log(err);
-      }
+      } catch (err:any) {
+toast.error(err)      }
     });
   };
 

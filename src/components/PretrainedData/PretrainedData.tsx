@@ -1,19 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import DataContext from "../../context/dataContext";
 import classes from "./PretrainedData.module.css";
-import {
-  Button,
-  Divider,
-  Group,
-  Radio,
-  Text,
-  TextInput,
-} from "@mantine/core";
+import { Button, Divider, Group, Radio, Text, TextInput } from "@mantine/core";
 import { toast } from "react-toastify";
 import DataTable from "../DataTable/DataTable";
 import { adultData, energyData, irisData, stockData } from "./dataPreview";
 import { config } from "../../utils/config";
-
 const tabularDataset = [
   {
     value: "adult",
@@ -63,7 +55,6 @@ const PretrainedData = () => {
 
   const generateHandler = (e: any) => {
     e.preventDefault();
-    console.log(dataset)
     const n_rows = e.target[0].value;
     try {
       fetch(`${config.SERVER_PATH}/data_generation/sample/?model=${dataset}`, {
@@ -77,12 +68,10 @@ const PretrainedData = () => {
       })
         .then((res) => res.json())
         .then((result) => {
-          console.log(result);
           if (result?.error) {
             toast.error(result?.error);
           } else {
             setGeneratedData(result?.data);
-            console.log("sample", result?.data.slice(0, 6));
             toast.success("Data generated successfully");
           }
         })
@@ -90,7 +79,7 @@ const PretrainedData = () => {
           toast.error(e.message);
         });
     } catch (e: any) {
-      console.log(e);
+      toast.error(e);
     }
   };
   const downloadHandler = () => {
