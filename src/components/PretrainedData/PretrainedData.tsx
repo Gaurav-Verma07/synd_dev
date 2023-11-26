@@ -12,6 +12,7 @@ import {
 import { toast } from "react-toastify";
 import DataTable from "../DataTable/DataTable";
 import { adultData, energyData, irisData, stockData } from "./dataPreview";
+import { config } from "../../utils/config";
 
 const tabularDataset = [
   {
@@ -65,7 +66,7 @@ const PretrainedData = () => {
     console.log(dataset)
     const n_rows = e.target[0].value;
     try {
-      fetch(`http://127.0.0.1:8000/data_generation/sample/?model=${dataset}`, {
+      fetch(`${config.SERVER_PATH}/data_generation/sample/?model=${dataset}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

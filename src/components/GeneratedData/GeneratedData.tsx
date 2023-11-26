@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import classes from "./GeneratedData.module.css";
 import { Button, Divider, TextInput } from "@mantine/core";
 import DataTable from "../DataTable/DataTable";
+import { config } from "../../utils/config";
 
 const GeneratedData = () => {
   const { userFile, isGenerate, setIsGenerate } = useContext(DataContext);
@@ -19,7 +20,7 @@ const GeneratedData = () => {
       const utime = new Date().valueOf();
       setUUID(utime);
       data.append("name", `${fileName}_${utime}`);
-      fetch("http://127.0.0.1:8000/data_generation/file/", {
+      fetch(`${config.SERVER_PATH}/data_generation/file/`, {
         method: "POST",
         body: data,
       })
@@ -43,7 +44,7 @@ const GeneratedData = () => {
   const generateHandler = (e: any) => {
     e.preventDefault();
     const n_rows = e.target[0].value;
-    fetch("http://127.0.0.1:8000/data_generation/generate/", {
+    fetch(`${config.SERVER_PATH}/data_generation/generate/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
