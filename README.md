@@ -35,7 +35,13 @@ We welcome contributions from anyone who is interested in improving this project
 
 - Submit a bug report if you find any issues with the application.
 - Suggest new features or improvements.
-- Submit a pull request to fix a bug or add a feature after an issue is assigned to you. 
+- Submit a pull request to fix a bug or add a feature after an issue is assigned to you.
+
+## Installation
+To run this project, use:
+`npm install`
+npm run dev`
+In adddition to this, also run backend part of this project from here: <a href="https://github.com/Gaurav-Verma07/backend" >backend</a>
 
 To submit a pull request, please follow these steps:
 
