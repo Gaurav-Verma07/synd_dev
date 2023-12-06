@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import DataContext from "../../context/dataContext";
 import { toast } from "react-toastify";
 import classes from "./GeneratedData.module.css";
-import { Button, Divider, TextInput } from "@mantine/core";
+import { Button, Divider, Loader, TextInput } from "@mantine/core";
 import DataTable from "../DataTable/DataTable";
 import { config } from "../../utils/config";
 
@@ -11,6 +11,7 @@ const GeneratedData = () => {
   const [isTrained, setIsTrained] = useState<boolean>(false);
   const [generatedData, setGeneratedData] = useState<any[][]>([[]]);
   const fileName = userFile.name.replace(/\.[^/.]+$/, "").toLowerCase();
+  const [isLoading, setIsLoading]= useState<boolean>(false);
   const [uuid, setUUID] = useState<number>();
   useEffect(() => {
     if (isGenerate) {
@@ -32,7 +33,7 @@ const GeneratedData = () => {
           toast.success("Model trained successfully");
         })
         .catch((error) => {
-          toast.error(error)
+          toast.error(error);
           setIsGenerate(false);
         });
     }
@@ -74,6 +75,43 @@ const GeneratedData = () => {
     link.click(); // This will download the data file named "my_data.csv".
   };
 
+  const downloadReportHandler = () => {
+    console.log({uuid})
+    setIsLoading(true);
+    fetch(`${config.SERVER_PATH}/data_generation/report/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ file_name: `${fileName}_${uuid}` }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          toast.error(`HTTP error! status: ${response.status}`);
+        }
+        return response.blob();
+      })
+      .then((blob) => {
+        const link = document.createElement("a");
+        link.href = window.URL.createObjectURL(new Blob([blob]));
+        link.setAttribute("download", "generated_report.pdf");
+        document.body.appendChild(link);
+
+        // Trigger the click event to start the download
+        link.click();
+
+        // Remove the link element
+        document.body.removeChild(link);
+        setIsLoading(false);
+      })
+      .catch((error: Error) => {
+
+        console.log(error)
+        toast.error(error.message);
+        setIsLoading(false);
+      });
+  };
+
   if (isGenerate || !isTrained) return <></>;
 
   return (
@@ -98,6 +136,7 @@ const GeneratedData = () => {
         </Button>
       </form>
       <DataTable generatedData={generatedData} />
+      <Button mt={20} onClick={downloadReportHandler}>{isLoading?<>Getting report...<Loader c="white"/></> :'Download report'}</Button>
     </section>
   );
 };
