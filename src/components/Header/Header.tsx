@@ -1,20 +1,13 @@
-import {
-  Menu,
-  Group,
-  Center,
-  Burger,
-  Container,
-  Title,
-} from "@mantine/core";
+import { Menu, Group, Center, Burger, Container, Title } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconChevronDown } from "@tabler/icons-react";
 import classes from "./Header.module.css";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const links = [
-  { link: "/about", label: "About" },
+  { link: "/", label: "About" },
   {
-    link: "#1",
+    link: "/",
     label: "Learn",
     links: [
       { link: "/docs", label: "Documentation" },
@@ -24,9 +17,9 @@ const links = [
     ],
   },
   { link: "/pretrained-model", label: "Pretrained models" },
-  { link: "/pricing", label: "Docs" },
+  { link: "/", label: "Docs" },
   {
-    link: "#2",
+    link: "/",
     label: "Support",
     links: [
       { link: "#faq", label: "FAQ" },
@@ -104,22 +97,36 @@ export function HeaderMenu() {
   });
 
   return (
-    <div className={classes.section} >
-    <header className={`${classes.header} ${location.pathname!=="/" && classes.backheader }`}  >
-      <Container size="md">
-        <div className={classes.inner}>
-          {/* <MantineLogo size={28} /> */}
-          {/* <Image src={Logo} /> */}
-          <Title className={`gradient  ${classes.logo} `} onClick={()=>{
-            navigate('/')
-          }} >SynD</Title>
-          <Group gap={5} visibleFrom="sm">
-            {items}
-          </Group>
-          <Burger opened={opened} onClick={toggle} size="sm" hiddenFrom="sm" />
-        </div>
-      </Container>
-    </header>
+    <div className={classes.section}>
+      <header
+        className={`${classes.header} ${
+          location.pathname !== "/" && classes.backheader
+        }`}
+      >
+        <Container size="md">
+          <div className={classes.inner}>
+            {/* <MantineLogo size={28} /> */}
+            {/* <Image src={Logo} /> */}
+            <Title
+              className={`gradient  ${classes.logo} `}
+              onClick={() => {
+                navigate("/");
+              }}
+            >
+              SynD
+            </Title>
+            <Group gap={5} visibleFrom="sm">
+              {items}
+            </Group>
+            <Burger
+              opened={opened}
+              onClick={toggle}
+              size="sm"
+              hiddenFrom="sm"
+            />
+          </div>
+        </Container>
+      </header>
     </div>
   );
 }
