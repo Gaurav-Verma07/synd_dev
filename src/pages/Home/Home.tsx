@@ -7,9 +7,9 @@ import Industries from "../../components/Industries/Industries";
 const Home = () => {
   return (
     <>
-      <div className="exp" >
         <HeaderMenu />
         <Herobox />
+      <div className="exp" >
         <Features />
       </div>
       <Industries />
