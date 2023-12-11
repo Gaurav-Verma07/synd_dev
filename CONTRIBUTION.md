@@ -12,8 +12,11 @@ We welcome contributions from anyone who is interested in improving this project
 
 ## Installation
 To run this project, use:
+
 `npm install`
-npm run dev`
+
+`npm run dev`
+
 In adddition to this, also run backend part of this project from here: <a href="https://github.com/Gaurav-Verma07/backend" >backend</a>
 
 To submit a pull request, please follow these steps:
