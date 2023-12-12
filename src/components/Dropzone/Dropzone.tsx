@@ -1,15 +1,16 @@
-import {  Group,  Paper, Text, rem } from "@mantine/core";
+import { Group, Paper, Text, rem } from "@mantine/core";
 import { IconUpload, IconX } from "@tabler/icons-react";
 import { Dropzone, DropzoneProps } from "@mantine/dropzone";
 import classes from "./Dropzone.module.css";
 import * as Papa from "papaparse";
 import { useContext } from "react";
 import DataContext from "../../context/dataContext";
-import LandingVideo from '../../assets/pretrained1.mp4'
+// import LandingVideo from "../../assets/pretrained1.mp4";
 import { toast } from "react-toastify";
+import DataTimeLine from "../DataTimeLine/DataTimeLine";
 
 const DropZone = (props: Partial<DropzoneProps>) => {
-  const { setAllData, setUserFile} = useContext(DataContext);
+  const { setAllData, setUserFile } = useContext(DataContext);
 
   const handleFile = (files: any) => {
     files.forEach((file: any) => {
@@ -29,19 +30,20 @@ const DropZone = (props: Partial<DropzoneProps>) => {
           }
         };
         reader.readAsArrayBuffer(file);
-      } catch (err:any) {
-toast.error(err)      }
+      } catch (err: any) {
+        toast.error(err);
+      }
     });
   };
 
-
   return (
-      <div className={classes.section}>
-         <div className={classes.videoblock}>
+    <div className={classes.section}>
+      <div className={classes.left}>
+        {/* <div className={classes.videoblock}>
           <video className={classes.video} autoPlay muted loop>
             <source src={LandingVideo} type="video/mp4" />
           </video>
-        </div>
+        </div> */}
         <Paper className={classes.main}>
           <Dropzone
             onDrop={(files) => {
@@ -97,11 +99,15 @@ toast.error(err)      }
           </Dropzone>
           {/* <Button className={classes.button}>Upload</Button> */}
         </Paper>
-        <Text className={classes.info}>
+        <Text className={classes.info} size="xs" c="#777" pt={20}>
           *Make sure to upload an error free file with all fields defined so as
           to avoid any possible errors while working with it.
         </Text>
       </div>
+      <div className={classes.right}>
+        <DataTimeLine />
+      </div>
+    </div>
   );
 };
 

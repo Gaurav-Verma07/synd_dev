@@ -53,7 +53,7 @@ const PretrainedLanding = () => {
         </div>
         <div className={classes.right}>
           <video className={classes.img} autoPlay muted loop>
-            <source src={PretrainVideo} type="video/mp4" />
+            <source src={PretrainVideo} className={classes.source} type="video/mp4" />
           </video>
         </div>
       </div>

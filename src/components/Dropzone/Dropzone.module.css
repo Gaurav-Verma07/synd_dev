@@ -1,25 +1,30 @@
-.main {
-  max-width: 600px;
-  margin: 0 auto;
-  border-radius: 10px;
-  /* background-color: #fff !important; */
-
-  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
-  padding: 50px;
-  position: relative;
-}
-
 .section {
-  /* width: 100vw; */
   position: relative;
   overflow: hidden;
   padding-top: 50px;
   padding-bottom: 130px;
-  background-image: url("../../assets/background.png");
+  background-image: url("../../assets/dropzonebg.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-color: #000 !important;
+  background-color: #fafafa !important;
+  min-height: 100vh;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: space-around;
+}
+.left {
+  /* margin: 10% 20px; */
+  /* align-self: center; */
+  max-width: 600px;
+}
+.main {
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
+  padding: 50px;
+  position: relative;
 }
 
 .dropzone {
@@ -46,12 +51,6 @@
   margin: 30px 0;
   cursor: pointer;
   height: 60px;
-}
-
-.info {
-  padding-top: 30px;
-  text-align: center;
-  color: #777;
 }
 
 .filetype {
@@ -91,12 +90,12 @@
   right: 0%;
 }
 
-.videoblock {
-  width: 300px;
-  margin: 0 auto;
-  /* height: 400px; */
-}
-.video{
-  width: 300px;
-  height: 300px;
+.video {
+  display: flex;
+  margin: 80px auto 10px auto;
+  width: 200px;
+  height: 200px;
+  border: 1px dotted rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
 }
