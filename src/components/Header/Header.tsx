@@ -124,6 +124,14 @@ export function HeaderMenu() {
               size="sm"
               hiddenFrom="sm"
             />
+            <Title
+              className={`gradient  ${classes.logo} `}
+              onClick={() => {
+                navigate("/tool");
+              }}
+            >
+              Generate
+            </Title>
           </div>
         </Container>
       </header>
