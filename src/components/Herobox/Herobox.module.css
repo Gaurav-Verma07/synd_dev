@@ -9,6 +9,7 @@
   position: relative;
   overflow: hidden;
   position: relative;
+  background-color: black;
 }
 
 .bgvideo {
@@ -109,4 +110,10 @@
   bottom: -40%;
   left: auto;
   right: 0%;
+}
+
+@media screen and (max-width: 600px) {
+  .section{
+    padding-top: 70px;
+  }
 }

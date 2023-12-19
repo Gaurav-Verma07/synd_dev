@@ -39,8 +39,7 @@
   margin-right: rem(5px);
 }
 
-.toolpage {
-}
+
 
 .logo {
   cursor: pointer;
@@ -49,4 +48,16 @@
 .backheader{
   background: transparent;
   
+}
+
+@media screen and (max-width: 1094px) {
+  .link{
+    padding: 8px 2px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .logo {
+    font-size:x-large;
+  }
 }
