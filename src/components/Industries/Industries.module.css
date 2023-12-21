@@ -23,3 +23,15 @@
 .text {
   margin-top: 20px;
 }
+
+@media screen and (max-width: 630px) {
+  .section{
+    height: 85vh;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .section{
+    height: 140vh;
+  }
+}

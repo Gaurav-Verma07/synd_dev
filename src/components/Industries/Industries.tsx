@@ -33,7 +33,7 @@ const Industries = () => {
   return (
     <section className={classes.section}>
       <Title className={classes.title} >Industries we serve</Title>
-      <Flex  justify={'space-evenly'}  >
+      <Flex  justify={'space-evenly'} wrap={'wrap'}  >
         {data.map((item: any, index: number) => (
           <Flex key={index} direction={'column'} align={'center'} className={classes.box}>
             <Image className={classes.img} src={item.img} />

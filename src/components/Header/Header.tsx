@@ -115,14 +115,14 @@ export function HeaderMenu() {
             >
               SynD
             </Title>
-            <Group gap={5} visibleFrom="sm">
+            <Group gap={5} visibleFrom="lg">
               {items}
             </Group>
             <Burger
               opened={opened}
               onClick={toggle}
-              size="sm"
-              hiddenFrom="sm"
+              size="lg"
+              hiddenFrom="lg"
             />
             <Title
               className={`gradient  ${classes.logo} `}

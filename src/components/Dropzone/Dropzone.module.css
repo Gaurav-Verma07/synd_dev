@@ -18,6 +18,7 @@
   /* margin: 10% 20px; */
   /* align-self: center; */
   max-width: 600px;
+  margin: 20px;
 }
 .main {
   max-width: 600px;
@@ -98,4 +99,15 @@
   border: 1px dotted rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   overflow: hidden;
+}
+
+@media screen and (max-width: 550px) {
+  .section
+  {
+    flex-direction: column;
+  }
+  .right
+  {
+    margin: 20px;
+  }
 }
