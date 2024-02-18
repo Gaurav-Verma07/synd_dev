@@ -27,7 +27,7 @@ const Herobox = () => {
         <Button
           className={classes.btn}
           onClick={() => {
-            navigate("/tool");
+            navigate("/tool/dashboard");
           }}
         >
           <span> Get started</span> <IconArrowNarrowRight size={40} />

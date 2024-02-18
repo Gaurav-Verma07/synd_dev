@@ -1,32 +1,25 @@
-import { Link, useNavigate } from "react-router-dom";
-import DataPreview from "../../components/DataPreview/DataPreview";
-import DropZone from "../../components/Dropzone/Dropzone";
-import GeneratedData from "../../components/GeneratedData/GeneratedData";
-import { HeaderMenu } from "../../components/Header/Header";
-
-// const Tool = () => {
-//   return (
-//     <div>
-//       <HeaderMenu />
-// <DropZone />
-// <DataPreview />
-// <GeneratedData />
-//     </div>
-//   );
-// };
-
-// export default Tool;
-
-import {
-  AppShell,
-  Burger,
-  Group,
-  NavLink,
-  Skeleton,
-  Text,
-  Title,
-} from "@mantine/core";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import { AppShell, Burger, Group, Text, Title } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+
+const dashboardLink = [
+  {
+    label: "Dashboard",
+    link: "/tool/dashboard",
+  },
+  {
+    label: "Activity",
+    link: "/tool/activity",
+  },
+  {
+    label: "Project",
+    link: "/tool/project",
+  },
+  {
+    label: "Profile",
+    link: "/tool/profile",
+  },
+];
 
 const Tool = () => {
   const [opened, { toggle }] = useDisclosure();
@@ -47,27 +40,29 @@ const Tool = () => {
           <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
           {/* <MantineLogo size={30} /> */}
           <Title
-              className={`gradient`}
-              onClick={() => {
-                navigate("/");
-              }}
-            >
-              SynD
-            </Title>
+            className={`gradient`}
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            SynD
+          </Title>
         </Group>
       </AppShell.Header>
       <AppShell.Navbar p="md">
-        {["Dashboard", "Activity", "Project", "Profile"].map((data, index) => (
-          <Text py={10} fw={600} >
-          <Link style={{color:'#000', textDecoration:'none'}} to={`/tool/${data}`}>{data}</Link>
+        {dashboardLink.map((data, index) => (
+          <Text py={10} fw={600} key={index}>
+            <Link
+              style={{ color: "#000", textDecoration: "none" }}
+              to={data.link}
+            >
+              {data.label}
+            </Link>
           </Text>
         ))}
       </AppShell.Navbar>
       <AppShell.Main>
-        {" "}
-        <DropZone />
-        <DataPreview />
-        <GeneratedData />
+        <Outlet />
       </AppShell.Main>
     </AppShell>
   );

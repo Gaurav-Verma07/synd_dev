@@ -11,6 +11,8 @@ import "./styles/global.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PretrainedModel from "./pages/PretrainedModel/PretrainedModel";
+import DataTimeLine from "./components/DataTimeLine/DataTimeLine";
+import MainTool from "./components/MainTool/MainTool";
 
 export default function App() {
   const [allData, setAllData] = useState<string[][]>([[""]]);
@@ -35,7 +37,12 @@ export default function App() {
       <MantineProvider theme={theme}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/tool" element={<Tool />} />
+          <Route path="/tool" element={<Tool />}>
+            <Route path="dashboard" element={<DataTimeLine />}></Route>
+            <Route path="project" element={<MainTool />}></Route>
+            <Route path="activity" element={<div>Coming soon...</div>}></Route>
+            <Route path="profile" element={<div>Coming soon...</div>}></Route>
+          </Route>
           <Route path="/pretrained-model" element={<PretrainedModel />} />
         </Routes>
         <ToastContainer />

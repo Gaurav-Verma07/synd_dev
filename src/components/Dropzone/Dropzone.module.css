@@ -3,10 +3,6 @@
   overflow: hidden;
   padding-top: 50px;
   padding-bottom: 130px;
-  background-image: url("../../assets/dropzonebg.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
   background-color: #fafafa !important;
   min-height: 100vh;
   display: flex;

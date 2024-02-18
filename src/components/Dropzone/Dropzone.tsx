@@ -7,7 +7,6 @@ import { useContext } from "react";
 import DataContext from "../../context/dataContext";
 // import LandingVideo from "../../assets/pretrained1.mp4";
 import { toast } from "react-toastify";
-import DataTimeLine from "../DataTimeLine/DataTimeLine";
 
 const DropZone = (props: Partial<DropzoneProps>) => {
   const { setAllData, setUserFile } = useContext(DataContext);
@@ -103,9 +102,6 @@ const DropZone = (props: Partial<DropzoneProps>) => {
           *Make sure to upload an error free file with all fields defined so as
           to avoid any possible errors while working with it.
         </Text>
-      </div>
-      <div className={classes.right}>
-        <DataTimeLine />
       </div>
     </div>
   );
