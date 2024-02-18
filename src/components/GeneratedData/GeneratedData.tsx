@@ -76,7 +76,6 @@ const GeneratedData = () => {
   };
 
   const downloadReportHandler = () => {
-    console.log({uuid})
     setIsLoading(true);
     fetch(`${config.SERVER_PATH}/data_generation/report/`, {
       method: "POST",
@@ -106,7 +105,6 @@ const GeneratedData = () => {
       })
       .catch((error: Error) => {
 
-        console.log(error)
         toast.error(error.message);
         setIsLoading(false);
       });
