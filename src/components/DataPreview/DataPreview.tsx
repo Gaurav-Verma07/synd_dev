@@ -1,4 +1,4 @@
-import { Button, Loader, Text, Title } from "@mantine/core";
+import { Button, Loader, Text } from "@mantine/core";
 import DataContext from "../../context/dataContext";
 import { useContext } from "react";
 import classes from "./DataPreview.module.css";
@@ -12,9 +12,6 @@ const DataPreview = () => {
 
   return (
     <div className={classes.base}>
-      <Title variant="h6" mb={5} c={"#777"} fw={300}>
-        Data preview
-      </Title>
       <Text c={"grey"} mb={15} fw={600}>
         *{userFile.name}
       </Text>

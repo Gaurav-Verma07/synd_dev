@@ -1,10 +1,9 @@
 .section {
   position: relative;
   overflow: hidden;
-  padding-top: 50px;
+  padding-top: 20px;
   padding-bottom: 130px;
   background-color: #fafafa !important;
-  min-height: 100vh;
   display: flex;
   align-content: center;
   align-items: center;

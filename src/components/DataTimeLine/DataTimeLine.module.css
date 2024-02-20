@@ -1,0 +1,31 @@
+.wrapper {
+    padding-top: calc(var(--mantine-spacing-xl) * 1);
+  }
+  
+  .title {
+    font-family:
+      Greycliff CF,
+      var(--mantine-font-family);
+    font-weight: 900;
+    margin-bottom: var(--mantine-spacing-md);
+    text-align: center;
+  
+    @media (max-width: 48em) {
+      font-size: rem(28px);
+      text-align: left;
+    }
+  }
+  
+  .description {
+    text-align: center;
+  
+    @media (max-width: 48em) {
+      text-align: left;
+    }
+  }
+
+  .box{
+    border: 1px solid #6b6a6a;
+    border-radius: 20px;
+    padding: 20px;
+  }
